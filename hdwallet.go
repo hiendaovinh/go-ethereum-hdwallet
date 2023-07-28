@@ -9,8 +9,8 @@ import (
 	"os"
 	"sync"
 
+	"github.com/btcsuite/btcd/btcutil/hdkeychain"
 	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcutil/hdkeychain"
 	"github.com/ethereum/go-ethereum"
 	"github.com/ethereum/go-ethereum/accounts"
 	"github.com/ethereum/go-ethereum/common"
@@ -160,7 +160,7 @@ func (w *Wallet) Unpin(account accounts.Account) error {
 // SetFixIssue172 determines whether the standard (correct) bip39
 // derivation path was used, or if derivation should be affected by
 // Issue172 [0] which was how this library was originally implemented.
-// [0] https://github.com/btcsuite/btcutil/pull/182/files
+// [0] https://github.com/btcsuite/btcd/btcutil/pull/182/files
 func (w *Wallet) SetFixIssue172(fixIssue172 bool) {
 	w.fixIssue172 = fixIssue172
 }
@@ -282,7 +282,7 @@ func (w *Wallet) SignTx(account accounts.Account, tx *types.Transaction, chainID
 
 	signer := types.LatestSignerForChainID(chainID)
 
-  // Sign the transaction and verify the sender to avoid hardware fault surprises
+	// Sign the transaction and verify the sender to avoid hardware fault surprises
 	signedTx, err := types.SignTx(tx, signer, privateKey)
 	if err != nil {
 		return nil, err

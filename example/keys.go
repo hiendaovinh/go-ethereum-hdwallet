@@ -1,13 +1,13 @@
-package main
+package hdwallet_test
 
 import (
 	"fmt"
 	"log"
 
-	"github.com/miguelmota/go-ethereum-hdwallet"
+	hdwallet "github.com/hiendaovinh/go-ethereum-hdwallet"
 )
 
-func main() {
+func ExampleKeys() {
 	mnemonic := "tag volcano eight thank tide danger coast health above argue embrace heavy"
 
 	wallet, err := hdwallet.NewFromMnemonic(mnemonic)

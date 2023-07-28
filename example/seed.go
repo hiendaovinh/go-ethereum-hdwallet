@@ -1,13 +1,13 @@
-package main
+package hdwallet_test
 
 import (
 	"fmt"
 	"log"
 
-	"github.com/miguelmota/go-ethereum-hdwallet"
+	hdwallet "github.com/hiendaovinh/go-ethereum-hdwallet"
 )
 
-func main() {
+func ExampleSeed() {
 	seed, _ := hdwallet.NewSeed()
 	wallet, err := hdwallet.NewFromSeed(seed)
 	if err != nil {
