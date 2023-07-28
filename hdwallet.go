@@ -30,7 +30,7 @@ var DefaultRootDerivationPath = accounts.DefaultRootDerivationPath
 // at m/44'/60'/0'/1, etc
 var DefaultBaseDerivationPath = accounts.DefaultBaseDerivationPath
 
-const issue179FixEnvar = "GO_ETHEREUM_HDWALLET_FIX_ISSUE_179"
+const Issue179FixEnv = "GO_ETHEREUM_HDWALLET_FIX_ISSUE_179"
 
 // Wallet is the underlying wallet struct.
 type Wallet struct {
@@ -55,7 +55,7 @@ func newWallet(seed []byte) (*Wallet, error) {
 		seed:        seed,
 		accounts:    []accounts.Account{},
 		paths:       map[common.Address]accounts.DerivationPath{},
-		fixIssue172: false || len(os.Getenv(issue179FixEnvar)) > 0,
+		fixIssue172: false || len(os.Getenv(Issue179FixEnv)) > 0,
 	}, nil
 }
 
